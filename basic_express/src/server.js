@@ -1,25 +1,17 @@
 import express from "express";
 import bodyParser from "body-parser";
 
+import adminRoute from "./routes/admin.js";
+import shopRoute from "./routes/shop.js";
+
 const PORT = "3000";
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/add-product", (req, res, next) => {
-    res.send(
-        '<form method="POST" action="/product"><input type="text" name="message" /> <button type="submit">Send</button></form>',
-    );
-});
+app.use(adminRoute);
 
-app.post("/product", (req, res, next) => {
-    console.log(req.body);
-    res.redirect("/");
-});
-
-app.use("/", (req, res, next) => {
-    res.send("Hello");
-});
+app.use(shopRoute);
 
 app.listen(PORT, () => {
     console.log("Listing on port: ", PORT);
