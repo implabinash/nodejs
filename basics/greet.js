@@ -1,4 +1,4 @@
-const name = process.argv[2];
+const names = process.argv[2];
 
 const hour = new Date().getHours();
 
@@ -14,4 +14,4 @@ const greet = (hour) => {
     }
 };
 
-console.log(`${greet(hour)}, ${name}`);
+console.log(`${greet(hour)}, ${names}`);
