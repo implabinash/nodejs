@@ -1,8 +1,4 @@
-const names = process.argv[2];
-
-const hour = new Date().getHours();
-
-const greet = (hour) => {
+export const greet = (hour) => {
     if (hour > 6 && hour < 12) {
         return "Good Morning";
     } else if (hour < 16) {
@@ -13,5 +9,3 @@ const greet = (hour) => {
         return "Good Night";
     }
 };
-
-console.log(`${greet(hour)}, ${names}`);
